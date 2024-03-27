@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"io"
@@ -12,8 +12,9 @@ type config struct {
 }
 
 func getAPIConfig() config {
+	endpoint := "https://pokeapi.co/api/v2/location-area/"
 	return config{
-		Next: "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",
+		Next: endpoint,
 		Previous: "",
 	}
 }

@@ -66,10 +66,10 @@ func getCommands() map[string]command {
 				description: "Exit the program",
 				callback: exitCommand,
 			},
-			"map": {
+			"mapf": {
 				name: "map",
 				description: "Displays next 20 locations from the Pokemon API",
-				callback: mapCommand,
+				callback: mapfCommand,
 			},
 			"mapb": {
 				name: "mapb",

@@ -22,6 +22,7 @@ func (c *Client) ListLocations(pageURL *string) (LocationAPIResponse, error) {
 	if err != nil {
 		return LocationAPIResponse{}, err
 	}
+	
 	defer resp.Body.Close()
 
 	dat, err := io.ReadAll(resp.Body)

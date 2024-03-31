@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func exitCommand(cfg *config) error {
+func exitCommand(cfg *config, param string) error {
 		fmt.Println("Are you sure you want to exit? (yes/y or no/n)")
 		scanner.Scan()
 		text := strings.ToLower(scanner.Text())

@@ -3,7 +3,6 @@ package pokeapi
 import (
 	"encoding/json"
 	"io"
-	"net/http"
 )
 
 // ExploreLocations -
@@ -12,13 +11,8 @@ func (c *Client) ExploreLocation(location string) (AreaAPIResponse, error) {
 	if location == "" {
 		return AreaAPIResponse{}, nil
 	}
-	
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return AreaAPIResponse{}, err
-	}
 
-	resp, err := c.httpClient.Do(req)
+	resp, err := c.httpClient.Get(url)
 	if err != nil {
 		return AreaAPIResponse{}, err
 	}

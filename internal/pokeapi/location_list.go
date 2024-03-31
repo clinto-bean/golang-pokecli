@@ -3,7 +3,6 @@ package pokeapi
 import (
 	"encoding/json"
 	"io"
-	"net/http"
 )
 
 // ListLocations -
@@ -13,12 +12,7 @@ func (c *Client) ListLocations(pageURL *string) (LocationAPIResponse, error) {
 		url = *pageURL
 	}
 
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return LocationAPIResponse{}, err
-	}
-
-	resp, err := c.httpClient.Do(req)
+	resp, err := c.httpClient.Get(url)
 	if err != nil {
 		return LocationAPIResponse{}, err
 	}

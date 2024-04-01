@@ -4,12 +4,13 @@ import (
 	"fmt"
 )
 
-func exploreCommand(cfg *config, location string) error {
-	resp, err := cfg.pokeapiClient.ExploreLocation(location)
+func exploreCommand(cfg *config, args ...string) error {
+	resp, err := cfg.pokeapiClient.GetLocation(args[0])
 
 	if err != nil {
 		return err
 	}
+	
 	fmt.Println("Found pokemon:")
 	var names []string
 	for _, encounter := range resp.PokemonEncounters {
